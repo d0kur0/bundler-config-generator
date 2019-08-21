@@ -1,0 +1,23 @@
+{
+  "name": "bundler-config-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/d0kur0/bundler-config-generator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/d0kur0/bundler-config-generator/issues"
+  },
+  "homepage": "https://github.com/d0kur0/bundler-config-generator#readme",
+  "devDependencies": {},
+  "dependencies": {
+    "prompts": "^2.2.1"
+  }
+}

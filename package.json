@@ -16,8 +16,8 @@
     "url": "https://github.com/d0kur0/bundler-config-generator/issues"
   },
   "homepage": "https://github.com/d0kur0/bundler-config-generator#readme",
-  "devDependencies": {},
   "dependencies": {
+    "chalk": "^2.4.2",
     "prompts": "^2.2.1"
   }
 }

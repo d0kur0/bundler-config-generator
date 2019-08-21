@@ -21,19 +21,38 @@ module.exports = [
 		]
 	},
 	{
-		name: "styles_plugins",
-		message: (prev) => `Выбери нужные плагины для ${prev}`,
-		type: "multiselect",
-		choices: (prev) => require(`./plugins/css/${prev}`)
-	},
-	{
 		type: "select",
 		name: "html",
 		message: "Пре/Пост процессор для HTML",
 		choices: [
 			{ title: "Vanilla HTML", value: "html" },
-			{ title: "PUG",          value: "pug" },
-			{ title: "Nunjucks",     value: "nunjucks" }
+			{ title: "PUG",          value: "pug" }
+		]
+	},
+	{
+		type: "select",
+		name: "transpilation",
+		message: "Траспиляция или TypeScript?",
+		choices: [
+			{ title: "Babel",      value: "babel" },
+			{ title: "TypeScript", value: "typescript" }
+		]
+	},
+	{
+		type: "toggle",
+		name: "linter",
+		message: "Установить линтер для JavaScript кода?",
+		initial: true,
+		active: 'Да',
+		inactive: 'Нет'
+	},
+	{
+		type: "multiselect",
+		name: "plugins",
+		message: "Дополнительные плагины",
+		choices: [
+			{ title: "Минификация и очистка CSS", value: "gulp-clean-css" },
+			{ title: "Конкатенация CSS файлов",   value: "gulp-concat" },
 		]
 	}
 ];

@@ -19,5 +19,8 @@
   "dependencies": {
     "chalk": "^2.4.2",
     "prompts": "^2.2.1"
+  },
+  "bin": {
+    "bundler-generate": "./app/index.js"
   }
 }

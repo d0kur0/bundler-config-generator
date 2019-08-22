@@ -3,7 +3,7 @@ const path = require("path");
 module.exports = [
 	{
 		type: "text",
-		initial: path.parse(__dirname).dir.split(path.sep).pop() || "",
+		initial: process.cwd().split(path.sep).pop() || "",
 		name: "name",
 		message: "Название проекта",
 		validate: value => /^[A-zА-яЁё0-9+_-]{1,36}$/.test(value) ? true : `От 1, до 36 символов, A-zА-я0-9 -_+`,
@@ -13,11 +13,11 @@ module.exports = [
 		name: "styles",
 		message: "Пре/Пост процессор для CSS",
 		choices: [
-			{ title: "Vanilla CSS", value: "css" },
-			{ title: "SCSS (SASS)", value: "scss" },
-			{ title: "Less",        value: "less" },
-			{ title: "PostCSS",     value: "postcss" },
-			{ title: "Stylus",      value: "stylus" },
+			{ title: "Vanilla CSS", value: { name: "css",     packages: [''] } },
+			{ title: "SCSS (SASS)", value: { name: "scss",    packages: ['gulp-sass', ['node-sass']] } },
+			{ title: "Less",        value: { name: "less",    packages: ['gulp-less'] } },
+			{ title: "PostCSS",     value: { name: "postcss", packages: ['gulp-postcss'] } },
+			{ title: "Stylus",      value: { name: "stylus",  packages: ['gulp-stylus'] } },
 		]
 	},
 	{
@@ -25,8 +25,8 @@ module.exports = [
 		name: "html",
 		message: "Пре/Пост процессор для HTML",
 		choices: [
-			{ title: "Vanilla HTML", value: "html" },
-			{ title: "PUG",          value: "pug" }
+			{ title: "Vanilla HTML", value: { name: "html", packages: [] } },
+			{ title: "PUG",          value: { name: "pug",  packages: ['gulp-pug'] } }
 		]
 	},
 	{
@@ -34,8 +34,8 @@ module.exports = [
 		name: "transpilation",
 		message: "Траспиляция или TypeScript?",
 		choices: [
-			{ title: "Babel",      value: "babel" },
-			{ title: "TypeScript", value: "typescript" }
+			{ title: "Babel",      value: { name: "babel",      packages: ['@babel/core', '@babel/preset-env'] } },
+			{ title: "TypeScript", value: { name: "typescript", packages: [] } }
 		]
 	},
 	{

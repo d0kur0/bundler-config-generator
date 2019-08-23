@@ -34,8 +34,8 @@ module.exports = [
 		name: "transpilation",
 		message: "Траспиляция или TypeScript?",
 		choices: [
-			{ title: "Babel",      value: { name: "babel",      packages: ['@babel/core', '@babel/preset-env'] } },
-			{ title: "TypeScript", value: { name: "typescript", packages: [] } }
+			{ title: "Babel",      value: { name: "babel",      packages: ['@babel/core', '@babel/preset-env', 'babel-loader'] } },
+			{ title: "TypeScript", value: { name: "typescript", packages: ['typescript', 'ts-loader'] } }
 		]
 	},
 	{

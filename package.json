@@ -21,6 +21,6 @@
     "prompts": "^2.2.1"
   },
   "bin": {
-    "bundler-generate": "./app/index.js"
+    "install-bundler": "./app/index.js"
   }
 }

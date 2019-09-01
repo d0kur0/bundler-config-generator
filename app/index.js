@@ -10,6 +10,8 @@ const chalk = require('chalk');
 	try {
 		await require('./init-npm')(response.name);
 		await require('./installer')(response);
+		require('./mk-struct')();
+		require('./generate-config')(response);
 
 		log(chalk.magenta('\r\n Установка завершена'));
 	} catch (e) {

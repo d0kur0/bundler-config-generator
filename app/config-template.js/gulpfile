@@ -1,0 +1,43 @@
+const { watch, src, dest, task, series, parallel } = require('gulp');
+const plumber = require('gulp-plumber');
+
+task('clear', async () => await require('del')('./dist'));
+
+task('build:CSS', () => {
+	{IMPORT_CSS}
+	const sourcemaps = require('gulp-sourcemaps');
+
+	return src('./src/styles/index.css')
+		.pipe(plumber())
+		.pipe(require('gulp-if')(process.env.DEBUG, sourcemaps.init()))
+		{BUILD_CSS}
+		.pipe(require('gulp-if')(process.env.DEBUG, sourcemaps.write()))
+		.pipe(dest('./dist'));
+});
+
+task('build:JS', () => {
+	return src('./src/js/index.js')
+		.pipe(plumber())
+		.pipe(require('webpack-stream')(require('./webpack.config.js')))
+		.pipe(dest('./dist'));
+});
+
+task('build:HTML', () => {
+	{IMPORTS_HTML}
+	return src('./src/templates/pages/**')
+		.pipe(plumber())
+		{BUILD_HTML}
+		.pipe(dest('./dist'));
+});
+
+task('watch', () => {
+	const bSync = require('browser-sync').init({server: './dist'});
+	watch('./src/styles/**',    series('build:CSS'));
+	watch('./src/js/**',        series('build:JS'));
+	watch('./src/templates/**', series('build:HTML'));
+	watch('./dist/**').on('change', bSync.reload);
+});
+
+task('build', series('clear', parallel('build:CSS', 'build:JS', 'build:HTML', 'assets:SVG')));
+task('default', series('build'));
+task('serve', series('build', 'watch'));

@@ -28,7 +28,7 @@ module.exports = async (response) => {
 
     const packagesList = [
         ...localPackages,
-        ...response.plugins,
+        ...response.plugins.map(p => p.package),
         ...response.transpilation.packages,
         ...response.styles.packages,
         ...response.html.packages,

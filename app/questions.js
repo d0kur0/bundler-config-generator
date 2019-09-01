@@ -51,8 +51,8 @@ module.exports = [
 		name: "plugins",
 		message: "Дополнительные плагины",
 		choices: [
-			{ title: "Минификация и очистка CSS", value: "gulp-clean-css" },
-			{ title: "Конкатенация CSS файлов",   value: "gulp-concat" },
+			{ title: "Минификация и очистка CSS", value: { package: "gulp-clean-css", use: "require('gulp-clean-css')({compatibility: 'ie9'})" } },
+			{ title: "Конкатенация CSS файлов",   value: { package: "gulp-concat",    use: "require('gulp-concat')('bundle.css')" } },
 		]
 	}
 ];

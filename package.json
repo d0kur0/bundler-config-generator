@@ -18,6 +18,7 @@
   "homepage": "https://github.com/d0kur0/bundler-config-generator#readme",
   "dependencies": {
     "chalk": "^2.4.2",
+    "js-beautify": "^1.10.2",
     "ora": "^3.4.0",
     "prompts": "^2.2.1"
   },

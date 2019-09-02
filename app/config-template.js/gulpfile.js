@@ -4,7 +4,7 @@ const plumber = require('gulp-plumber');
 task('clear', async () => await require('del')('./dist'));
 
 task('build:CSS', () => {
-	{IMPORT_CSS}
+	{BEFORE}
 	const sourcemaps = require('gulp-sourcemaps');
 
 	return src('./src/styles/index.css')
@@ -18,7 +18,7 @@ task('build:CSS', () => {
 task('build:JS', () => {
 	return src('./src/js/index.js')
 		.pipe(plumber())
-		.pipe(require('webpack-stream')(require('./webpack.config.js')))
+		.pipe(require('webpack-stream')(require('./babel.js.js')))
 		.pipe(dest('./dist'));
 });
 

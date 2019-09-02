@@ -20,19 +20,11 @@ module.exports = async (response) => {
 
     spinner.succeed();
 
-    const linterPackages = response.linter
-        ? response.transpilation.name === 'babel'
-            ? ['eslint-loader', 'babel-eslint']
-            : ['tslint', 'tslint-loader']
-        : [];
-
     const packagesList = [
         ...localPackages,
         ...response.plugins.map(p => p.package),
-        ...response.transpilation.packages,
         ...response.styles.packages,
-        ...response.html.packages,
-        ...linterPackages
+        ...response.html.packages
     ];
 
     spinner = ora({

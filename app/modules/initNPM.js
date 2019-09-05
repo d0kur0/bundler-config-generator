@@ -14,7 +14,7 @@ module.exports = async (projectName) => {
     }
 
     const spinner = ora({
-        text: chalk.green('Инициализация NPM'),
+        text: chalk.blue('Инициализация NPM'),
         spinner: require('../config/spinner')
     }).start();
 

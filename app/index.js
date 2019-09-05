@@ -8,12 +8,12 @@ const chalk = require('chalk');
 	const response = await prompts(require('./questions'));
 
 	try {
-		await require('./init-npm')(response.name);
-		await require('./installer')(response);
-		require('./mk-struct')();
-		require('./generate-config')(response);
+		await require('./modules/initNPM')(response.name);
+		await require('./modules/installPackages')(response);
+		require('./modules/makeStruct')();
+		require('./modules/generateConfig')(response);
 
-		log(chalk.magenta('\r\n Установка завершена'));
+		log(chalk.magenta('Установка завершена'));
 	} catch (e) {
 		log(chalk.red(` - ${e.message} \r\n Stack: \r\n ${e.stack}`));
 	}

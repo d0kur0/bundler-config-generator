@@ -93,7 +93,8 @@ module.exports = [
 			{
 				title: "Минификация и очистка CSS",
 				value: {
-					package: "gulp-clean-css",
+					packages: ["gulp-clean-css"],
+					for: "styles",
 					beforeCommand: "",
 					pipeCommand: `require('gulp-clean-css')({compatibility: 'ie9'})`
 				}
@@ -101,7 +102,8 @@ module.exports = [
 			{
 				title: "Конкатенация CSS файлов",
 				value: {
-					package: "gulp-concat",
+					for: "styles",
+					packages: ["gulp-concat"],
 					beforeCommand: '',
 					pipeCommand: `require('gulp-concat')('bundle.css')`
 				}

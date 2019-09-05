@@ -8,7 +8,7 @@ module.exports = () => {
     ];
 
     const spinner = ora({
-        text: chalk.green('Создание структуры файлов и папок'),
+        text: chalk.blue('Создание структуры файлов и папок'),
         spinner: require('../config/spinner')
     }).start();
 

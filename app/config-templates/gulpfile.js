@@ -16,8 +16,10 @@ task('build:CSS', () => {
 });
 
 task('build:JS', () => {
+	//{JS_BEFORE_COMMAND}
 	return src('./src/js/index.js')
 		.pipe(plumber())
+		//{JS_PIPE_COMMAND}
 		.pipe(require('webpack-stream')(require('./babel.js.js')))
 		.pipe(dest('./dist'));
 });

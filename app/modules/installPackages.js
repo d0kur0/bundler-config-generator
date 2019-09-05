@@ -17,7 +17,7 @@ module.exports = async (response) => {
     ];
 
     let spinner = ora({
-        text: chalk.green('Установка глобальных пакетов'),
+        text: chalk.blue('Установка глобальных пакетов'),
         spinner: require('../config/spinner')
     }).start();
 
@@ -28,7 +28,7 @@ module.exports = async (response) => {
     spinner.succeed();
 
     spinner = ora({
-        text: chalk.green('Установка локальных пакетов'),
+        text: chalk.blue('Установка локальных пакетов'),
         spinner: require('../config/spinner')
     }).start();
 

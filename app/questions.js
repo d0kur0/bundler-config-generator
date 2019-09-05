@@ -28,7 +28,7 @@ module.exports = [
 					name: "scss",
 					packages: ['gulp-sass', 'node-sass'],
 					beforeCommand: `const sass = require("gulp-sass"); sass.compiler = require('node-sass');`,
-					pipeCommand: 'sass()'
+					pipeCommand: `.pipe(sass())`
 				}
 			},
 			{
@@ -37,7 +37,7 @@ module.exports = [
 					name: "less",
 					packages: ['gulp-less'],
 					beforeCommand: '',
-					pipeCommand: `require('gulp-less')()`
+					pipeCommand: `.pipe(require('gulp-less')())`
 				}
 			},
 			{
@@ -46,7 +46,7 @@ module.exports = [
 					name: "postcss",
 					packages: ['gulp-postcss'],
 					beforeCommand: '',
-					pipeCommand: `require('gulp-postcss')()`
+					pipeCommand: `.pipe(require('gulp-postcss')())`
 				}
 			},
 			{
@@ -55,7 +55,7 @@ module.exports = [
 					name: "stylus",
 					packages: ['gulp-stylus'],
 					beforeCommand: '',
-					pipeCommand: `require('gulp-stylus')()`
+					pipeCommand: `.pipe(require('gulp-stylus')())`
 				}
 			},
 		]
@@ -80,7 +80,7 @@ module.exports = [
 					name: "pug",
 					packages: ['gulp-pug'],
 					beforeCommand: '',
-					pipeCommand: `require('gulp-pug')()`
+					pipeCommand: `.pipe(require('gulp-pug')())`
 				}
 			}
 		]
@@ -96,7 +96,7 @@ module.exports = [
 					packages: ["gulp-clean-css"],
 					for: "styles",
 					beforeCommand: "",
-					pipeCommand: `require('gulp-clean-css')({compatibility: 'ie9'})`
+					pipeCommand: `.pipe(require('gulp-clean-css')({compatibility: 'ie9'}))`
 				}
 			},
 			{
@@ -105,7 +105,7 @@ module.exports = [
 					for: "styles",
 					packages: ["gulp-concat"],
 					beforeCommand: '',
-					pipeCommand: `require('gulp-concat')('bundle.css')`
+					pipeCommand: `.pipe(require('gulp-concat')('bundle.css'))`
 				}
 			},
 		]

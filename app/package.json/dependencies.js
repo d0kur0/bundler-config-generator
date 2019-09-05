@@ -2,7 +2,7 @@ module.exports = [
 	{ name: "gulp",              isGlobal: false },
 	{ name: "gulp-cli",          isGlobal: true  },
 	{ name: "gulp-plumber",      isGlobal: false },
-	{ name: "gulp-sourcemap",    isGlobal: false },
+	{ name: "gulp-sourcemaps",   isGlobal: false },
 	{ name: "gulp-if",           isGlobal: false },
 	{ name: "gulp-changed",      isGlobal: false },
 	{ name: "webpack-stream",    isGlobal: false },

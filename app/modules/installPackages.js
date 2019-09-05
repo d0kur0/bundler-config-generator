@@ -5,13 +5,20 @@ const exec = util.promisify(require('child_process').exec);
 const ora = require('ora');
 
 module.exports = async (response) => {
-    const requiredPackages = require('./package.json/dependencies');
+    const requiredPackages = require('../package.json/dependencies');
     const globalPackages = requiredPackages.filter(p => p.isGlobal).map(p => p.name);
     const localPackages = requiredPackages.filter(p => !p.isGlobal).map(p => p.name);
 
+    const packagesList = [
+        ...[].concat(...response.plugins.map(n => n.packages)),
+        ...localPackages,
+        ...response.styles.packages,
+        ...response.html.packages
+    ];
+
     let spinner = ora({
         text: chalk.green('Установка глобальных пакетов'),
-        spinner: require('./spinner')
+        spinner: require('../config/spinner')
     }).start();
 
     if (!await exec(`npm i -D -g ${globalPackages.join(' ')}`)) {
@@ -20,16 +27,9 @@ module.exports = async (response) => {
 
     spinner.succeed();
 
-    const packagesList = [
-        ...localPackages,
-        ...response.plugins.map(p => p.package),
-        ...response.styles.packages,
-        ...response.html.packages
-    ];
-
     spinner = ora({
         text: chalk.green('Установка локальных пакетов'),
-        spinner: require('./spinner')
+        spinner: require('../config/spinner')
     }).start();
 
     if (!await exec(`npm i -D ${packagesList.join(' ')}`)) {

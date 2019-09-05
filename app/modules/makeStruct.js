@@ -9,7 +9,7 @@ module.exports = () => {
 
     const spinner = ora({
         text: chalk.green('Создание структуры файлов и папок'),
-        spinner: require('./spinner')
+        spinner: require('../config/spinner')
     }).start();
 
     dirs.forEach(d => fs.mkdirSync(d));

@@ -15,7 +15,7 @@ module.exports = async (projectName) => {
 
     const spinner = ora({
         text: chalk.green('Инициализация NPM'),
-        spinner: require('./spinner')
+        spinner: require('../config/spinner')
     }).start();
 
     if (!await exec('npm init --yes')) {
@@ -27,6 +27,6 @@ module.exports = async (projectName) => {
     const json = JSON.parse(fs.readFileSync('package.json'));
     json.name = projectName;
     json.author = require("os").userInfo().username;
-    json.scripts = require('./package.json/scripts');
+    json.scripts = require('../package.json/scripts');
     fs.writeFileSync('package.json', JSON.stringify(json));
 };

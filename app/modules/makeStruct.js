@@ -7,13 +7,18 @@ module.exports = () => {
         'src', 'src/styles', 'src/js', 'src/templates'
     ];
 
+    const files = [
+        'src/styles/index.css',
+        'src/js/index.js'
+    ];
+
     const spinner = ora({
         text: chalk.blue('Создание структуры файлов и папок'),
         spinner: require('../config/spinner')
     }).start();
 
     dirs.forEach(d => fs.mkdirSync(d));
-    fs.writeFileSync('src/js/index.js', '');
+    files.forEach(f => fs.writeFileSync(f, ''));
 
     spinner.succeed();
 };

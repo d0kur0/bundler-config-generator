@@ -9,7 +9,7 @@ const chalk = require('chalk');
 
 	try {
 		await require('./modules/initNPM')(response.name);
-		//await require('./modules/installPackages')(response);
+		await require('./modules/installPackages')(response);
 		require('./modules/makeStruct')();
 		require('./modules/generateConfig')(response);
 

@@ -8,10 +8,10 @@ const chalk = require('chalk');
 	const response = await prompts(require('./questions'));
 
 	try {
-		await require('./modules/initNPM')(response.name);
-		await require('./modules/installPackages')(response);
-		require('./modules/makeStruct')();
-		require('./modules/generateConfig')(response);
+		//await require('./modules/initNPM')(response.name);
+		//await require('./modules/installPackages')(response);
+		//require('./modules/makeStruct')();
+		require('./logics/generateConfig')(response);
 
 		log(chalk.magenta('\nУстановка завершена'));
 		log(chalk.cyanBright(' npm run build - сборка бандла'));

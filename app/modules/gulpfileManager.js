@@ -14,7 +14,12 @@ exports.readFile = () => {
 };
 
 exports.writeFile = (gulpfileData) => {
-	fs.writeFileSync(destinationPath, gulpfileData);
+	const prettier = require("prettier");
+
+	fs.writeFileSync(
+			destinationPath,
+			prettier.format(gulpfileData, { semi: false, parser: "babel" })
+	);
 };
 
 exports.clearServiceComments = (gulpfileData, commentsList) => {

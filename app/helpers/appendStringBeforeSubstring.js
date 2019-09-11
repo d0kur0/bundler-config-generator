@@ -3,5 +3,5 @@ module.exports = (string, afterString, newString) => {
 
 	if (startIndexOfAfterString === -1) return string;
 
-	return string.slice(0, startIndexOfAfterString + afterString.length) + `\n${newString}\n` + string.slice(startIndexOfAfterString + afterString.length);
+	return string.slice(0, startIndexOfAfterString + afterString.length) + `\n${newString}` + string.slice(startIndexOfAfterString + afterString.length);
 };

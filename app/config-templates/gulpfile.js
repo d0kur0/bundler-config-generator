@@ -7,7 +7,7 @@ task('build:CSS', () => {
 	//{CSS_BEFORE_COMMAND}
 	const sourcemaps = require('gulp-sourcemaps');
 
-	return src('./src/styles/index.css')
+	return src('./src/styles/**')
 		.pipe(plumber())
 		.pipe(require('gulp-if')(process.env.DEBUG, sourcemaps.init()))
 		//{CSS_PIPE_COMMAND}
@@ -26,7 +26,7 @@ task('build:JS', () => {
 
 task('build:HTML', () => {
 	//{HTML_BEFORE_COMMAND}
-	return src('./src/templates/pages/**')
+	return src('./src/**')
 		.pipe(plumber())
 		//{HTML_PIPE_COMMAND}
 		.pipe(dest('./dist'));

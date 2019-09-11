@@ -2,14 +2,12 @@ const ora = require('ora');
 const chalk = require('chalk');
 
 class SpinnerWrapper {
-	constructor () {
-		this.spinnerInstance = ora({
-			text: chalk.blue('Генерация конфигурации'),
+	start (message) {
+		this.spinnerInstance = this.spinnerInstance = ora({
+			text: chalk.blue(message),
 			spinner: require('../config/spinner')
 		});
-	}
 
-	start () {
 		this.spinnerInstance.start();
 	}
 

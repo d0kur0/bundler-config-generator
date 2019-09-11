@@ -1,24 +1,20 @@
-const chalk = require('chalk');
 const fs = require('fs');
-const ora = require('ora');
+const spinner = require('../modules/getSpinner');
 
-module.exports = () => {
-    const dirs = [
-        'src', 'src/styles', 'src/js', 'src/templates'
-    ];
+module.exports = (response) => {
+    spinner.start("Создание структуры файлов и папок");
 
-    const files = [
-        'src/styles/index.css',
+    // Dirs
+    [
+        'src',
+        'src/styles',
+        'src/js',
+    ].forEach(d => fs.mkdirSync(d));
+
+    // Files
+    [
         'src/js/index.js'
-    ];
+    ].forEach(f => fs.writeFileSync(f, ''));
 
-    const spinner = ora({
-        text: chalk.blue('Создание структуры файлов и папок'),
-        spinner: require('../config/spinner')
-    }).start();
-
-    dirs.forEach(d => fs.mkdirSync(d));
-    files.forEach(f => fs.writeFileSync(f, ''));
-
-    spinner.succeed();
+    spinner.stop();
 };

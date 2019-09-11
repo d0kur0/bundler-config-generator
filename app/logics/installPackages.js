@@ -1,10 +1,10 @@
-const log = console.log;
-const chalk = require('chalk');
 const util = require('util');
 const exec = util.promisify(require('child_process').exec);
-const ora = require('ora');
+const spinner = require('../modules/getSpinner');
 
 module.exports = async (response) => {
+    spinner.start("Установка глобальных пакетов");
+
     const requiredPackages = require('../package.json/dependencies');
     const globalPackages = requiredPackages.filter(p => p.isGlobal).map(p => p.name);
     const localPackages = requiredPackages.filter(p => !p.isGlobal).map(p => p.name);
@@ -16,25 +16,16 @@ module.exports = async (response) => {
         ...response.html.packages
     ];
 
-    let spinner = ora({
-        text: chalk.blue('Установка глобальных пакетов'),
-        spinner: require('../config/spinner')
-    }).start();
-
     if (!await exec(`npm i -D -g ${globalPackages.join(' ')}`)) {
         throw new Error("Произошла ошибка при установке пакетов");
     }
 
-    spinner.succeed();
-
-    spinner = ora({
-        text: chalk.blue('Установка локальных пакетов'),
-        spinner: require('../config/spinner')
-    }).start();
+    spinner.stop();
+    spinner.start("Установка локальных пакетов");
 
     if (!await exec(`npm i -D ${packagesList.join(' ')}`)) {
         throw new Error("Произошла ошибка при установке пакетов");
     }
 
-    spinner.succeed();
+    spinner.stop();
 };

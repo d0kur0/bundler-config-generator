@@ -11,103 +11,25 @@ module.exports = [
 	{
 		type: "select",
 		name: "styles",
-		message: "Пре/Пост процессор для CSS",
-		choices: [
-			{
-				title: "Vanilla CSS",
-				value: {
-					name: "css",
-					packages: [''],
-					beforeCommand: '',
-					pipeCommand: ''
-				}
-			},
-			{
-				title: "SCSS (SASS)",
-				value: {
-					name: "scss",
-					packages: ['gulp-sass', 'node-sass'],
-					beforeCommand: `const sass = require("gulp-sass"); sass.compiler = require('node-sass');`,
-					pipeCommand: `.pipe(sass())`
-				}
-			},
-			{
-				title: "Less",
-				value: {
-					name: "less",
-					packages: ['gulp-less'],
-					beforeCommand: '',
-					pipeCommand: `.pipe(require('gulp-less')())`
-				}
-			},
-			{
-				title: "PostCSS",
-				value: {
-					name: "postcss",
-					packages: ['gulp-postcss'],
-					beforeCommand: '',
-					pipeCommand: `.pipe(require('gulp-postcss')())`
-				}
-			},
-			{
-				title: "Stylus",
-				value: {
-					name: "stylus",
-					packages: ['gulp-stylus'],
-					beforeCommand: '',
-					pipeCommand: `.pipe(require('gulp-stylus')())`
-				}
-			},
-		]
+		message: "Обработка стилей",
+		choices: require('./questions/styles')
 	},
 	{
 		type: "select",
-		name: "html",
-		message: "Пре/Пост процессор для HTML",
-		choices: [
-			{
-				title: "Vanilla HTML",
-				value: {
-					name: "html",
-					packages: [],
-					beforeCommand: '',
-					pipeCommand: ''
-				}
-			},
-			{
-				title: "PUG",
-				value: {
-					name: "pug",
-					packages: ['gulp-pug'],
-					beforeCommand: '',
-					pipeCommand: `.pipe(require('gulp-pug')())`
-				}
-			}
-		]
+		name: "layout",
+		message: "Вёрстка",
+		choices: require('./questions/layout')
+	},
+	{
+		type: "multiselect",
+		name: "others",
+		message: "Дополнительные задачи",
+		choices: require('./questions/additional_tasks')
 	},
 	{
 		type: "multiselect",
 		name: "plugins",
 		message: "Дополнительные плагины",
-		choices: [
-			{
-				title: "Минификация и очистка CSS",
-				value: {
-					packages: ["gulp-clean-css"],
-					for: "styles",
-					beforeCommand: "",
-					pipeCommand: `.pipe(require('gulp-clean-css')({compatibility: 'ie9'}))`
-				}
-			},
-			{
-				title: "Конкатенация CSS файлов",
-				value: {
-					for: "styles",
-					packages: ["gulp-concat"],
-					beforeCommand: '',
-					pipeCommand: `.pipe(require('gulp-concat')('bundle.css'))`
-				}
-			},
-		]
+		choices: require('./questions/additional_plugins')
 	}
 ];

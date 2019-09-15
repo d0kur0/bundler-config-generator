@@ -1,5 +1,5 @@
 const fs = require('fs');
-const spinner = require('../modules/getSpinner');
+const spinner = require('../helpers/spinner');
 
 module.exports = (response) => {
     spinner.start("Создание структуры файлов и папок");

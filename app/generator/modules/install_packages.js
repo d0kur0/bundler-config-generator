@@ -1,11 +1,11 @@
 const util = require('util');
 const exec = util.promisify(require('child_process').exec);
-const spinner = require('../modules/getSpinner');
+const spinner = require('../helpers/spinner');
 
 module.exports = async (response) => {
     spinner.start("Установка глобальных пакетов");
 
-    const requiredPackages = require('../package.json/dependencies');
+    const requiredPackages = require('../package.json_config/dependencies');
     const globalPackages = requiredPackages.filter(p => p.isGlobal).map(p => p.name);
     const localPackages = requiredPackages.filter(p => !p.isGlobal).map(p => p.name);
 

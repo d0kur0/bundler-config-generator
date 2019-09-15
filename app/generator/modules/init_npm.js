@@ -1,7 +1,7 @@
 const fs = require('fs');
 const util = require('util');
 const exec = util.promisify(require('child_process').exec);
-const spinner = require('../modules/getSpinner');
+const spinner = require('../helpers/spinner');
 
 module.exports = async (projectName) => {
     spinner.start("Инициализация NPM");
@@ -18,13 +18,13 @@ module.exports = async (projectName) => {
         throw new Error("Не удалось инициализировать NPM");
     }
 
-    const packageJson = JSON.parse(fs.readFileSync('package.json'));
+    const packageJson = JSON.parse(fs.readFileSync('packages'));
 
     packageJson.name = projectName;
     packageJson.author = require("os").userInfo().username;
-    packageJson.scripts = require('../package.json/scripts');
+    packageJson.scripts = require('../package.json_config/scripts');
 
-    fs.writeFileSync('package.json', JSON.stringify(packageJson));
+    fs.writeFileSync('packages', JSON.stringify(packageJson));
 
     spinner.stop();
 };

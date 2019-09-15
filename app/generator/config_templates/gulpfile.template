@@ -4,13 +4,12 @@ const plumber = require('gulp-plumber');
 task('clear', async () => await require('del')('./dist'));
 
 task('build:CSS', () => {
-	//{CSS_BEFORE_COMMAND}
 	const sourcemaps = require('gulp-sourcemaps');
 
-	return src('./src/styles/**')
+	return src('./src/styles/**.<%= styles.fileExtension %>')
 		.pipe(plumber())
 		.pipe(require('gulp-if')(process.env.DEBUG, sourcemaps.init()))
-		//{CSS_PIPE_COMMAND}
+	  <%= styles.fileExtension %>
 		.pipe(require('gulp-if')(process.env.DEBUG, sourcemaps.write()))
 		.pipe(dest('./dist'));
 });

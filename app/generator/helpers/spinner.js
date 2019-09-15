@@ -1,7 +1,7 @@
 const ora = require('ora');
 const chalk = require('chalk');
 
-class SpinnerWrapper {
+class Spinner {
 	start (message) {
 		this.spinnerInstance = this.spinnerInstance = ora({
 			text: chalk.blue(message),
@@ -44,4 +44,4 @@ class SpinnerWrapper {
 	}
 }
 
-module.exports = new SpinnerWrapper();
+module.exports = new Spinner();

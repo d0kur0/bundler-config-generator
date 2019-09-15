@@ -18,6 +18,7 @@
   "homepage": "https://github.com/d0kur0/bundler-config-generator#readme",
   "dependencies": {
     "chalk": "^2.4.2",
+    "lodash.template": "^4.5.0",
     "ora": "^3.4.0",
     "prettier": "1.18.2",
     "prompts": "^2.2.1"

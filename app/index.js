@@ -2,7 +2,7 @@
 
 const prompts = require('prompts');
 const notifications = require('./generator/helpers/notifications');
-const checkCurrentDir = require('./check_current_dir');
+const checkCurrentDir = require('./generator/modules/check_current_dir');
 
 (async () => {
 	if (!await checkCurrentDir()) {
@@ -13,8 +13,8 @@ const checkCurrentDir = require('./check_current_dir');
 
 	try {
 		await require('./generator/modules/init_npm')(response.name);
-		//await require('./generator/modules/install_packages')(response);
-		//require('./generator/modules/make_project_structure')(response);
+		await require('./generator/modules/install_packages')(response);
+		require('./generator/modules/make_project_structure')(response);
 		//require('./generator/modules/сonfig_generator')(response);
 
 		notifications.success('\nУстановка завершена');

@@ -5,12 +5,12 @@ module.exports = async () => {
 	const currentDir = fs.readdirSync(process.cwd());
 
 	if (!currentDir) {
-		throw new Error("Failed to read current directory");
+		throw new Error(`Не удалось прочитать папку: ${currentDir}`);
 	} else if (currentDir.length) {
 		const response = await prompts([{
 			type: "confirm",
 			name: "isInstall",
-			message: "The directory is not empty, install in this directory?",
+			message: "Эта директория не пуста, некоторые файлы могут быть перезаписаны, продолжить?",
 			initial: false
 		}]);
 

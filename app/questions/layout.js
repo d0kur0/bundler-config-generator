@@ -5,8 +5,8 @@ module.exports = [
 			name: "html",
 			packages: [],
 			fileExtension: 'html',
-			beforeCommand: '',
-			pipeCommand: ''
+			beforeCommands: [],
+			pipeCommands: []
 		}
 	},
 	{
@@ -15,8 +15,8 @@ module.exports = [
 			name: "pug",
 			packages: ['gulp-pug'],
 			fileExtension: 'pug',
-			beforeCommand: '',
-			pipeCommand: `require('gulp-pug')()`
+			beforeCommands: [],
+			pipeCommands: [`require('gulp-pug')()`]
 		}
 	}
 ];

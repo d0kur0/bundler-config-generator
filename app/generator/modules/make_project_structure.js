@@ -9,6 +9,7 @@ module.exports = (response) => {
         'src',
         'src/styles',
         'src/js',
+        'src/images'
     ].forEach(d => fs.mkdirSync(d));
 
     // Files

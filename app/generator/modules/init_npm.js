@@ -5,10 +5,10 @@ const spinner = require('../helpers/spinner');
 const packageJsonPath = './package.json';
 
 module.exports = async (projectName) => {
-    spinner.start("Initializing NPM");
+    spinner.start("Инициализация NPM");
 
     if (!await exec('npm init --yes')) {
-        throw new Error("Failed to initialize NPM");
+        throw new Error("Не удалось инициализировать NPM");
     }
 
     const packageJson = JSON.parse(fs.readFileSync(

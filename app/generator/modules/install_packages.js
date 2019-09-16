@@ -11,9 +11,10 @@ module.exports = async (response) => {
 
     const packagesList = [
         ...[].concat(...response.plugins.map(n => n.packages)),
-        ...localPackages,
+        ...[].concat(...response.others.map(n => n.packages)),
         ...response.styles.packages,
-        ...response.html.packages
+        ...response.layout.packages,
+        ...localPackages
     ];
 
     if (!await exec(`npm i -D -g ${globalPackages.join(' ')}`)) {

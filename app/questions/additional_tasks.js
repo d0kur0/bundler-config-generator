@@ -1,14 +1,16 @@
 module.exports = [
 	{
-		title: "Минификация изображений (png, jpg)",
+		title: "Оптимизация изображений (PNG, JPEG, GIF, SVG)",
 		value: {
-			packages: [],
-		}
-	},
-	{
-		title: "Минификация SVG",
-		value: {
-			packages: []
+			packages: ['gulp-images'],
+			task: {
+				name: "build:Images",
+				sourcePath: "./src/images/**",
+				destinationPath: "./dist/images/",
+				systemDependencies: ['libjpeg', 'libpng'],
+				beforeCommands: [''],
+				pipeCommands: ['']
+			}
 		}
 	}
 ];

@@ -1,20 +1,20 @@
 module.exports = [
 	{
-		title: "Минификация и очистка CSS",
+		title: "[STYLES] Минификация и очистка",
 		value: {
-			packages: ["gulp-clean-css"],
 			for: "styles",
-			beforeCommand: "",
-			pipeCommand: `require('gulp-clean-css')({compatibility: 'ie9'})`
+			packages: ["gulp-clean-css"],
+			beforeCommands: [],
+			pipeCommands: [`require('gulp-clean-css')({compatibility: 'ie9'})`]
 		}
 	},
 	{
-		title: "Конкатенация CSS файлов в один файл",
+		title: "[STYLES] Конкатенация файлов в один файл",
 		value: {
 			for: "styles",
 			packages: ["gulp-concat"],
-			beforeCommand: '',
-			pipeCommand: `require('gulp-concat')('bundle.css')`
+			beforeCommands: [],
+			pipeCommands: [`require('gulp-concat')('bundle.css')`]
 		}
 	},
 ];

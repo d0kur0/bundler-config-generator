@@ -1,0 +1,10 @@
+const { watch, src, dest, task, series, parallel } = require('gulp');
+const plumber = require('gulp-plumber');
+
+task('clear', async () => await require('del')('./dist'));
+
+// TASKS
+
+task('build', series('clear', parallel('build:CSS', 'build:JS', 'build:HTML')));
+task('default', series('build'));
+task('serve', series('build', 'watch'));

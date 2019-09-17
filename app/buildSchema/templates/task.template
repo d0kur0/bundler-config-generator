@@ -1,0 +1,8 @@
+task(:task_name:, () => {
+	return src('./src/styles/**.<%= styles.fileExtension %>')
+		.pipe(plumber())
+		.pipe(require('gulp-if')(process.env.DEBUG, sourcemaps.init()))
+	  <%= styles.fileExtension %>
+		.pipe(require('gulp-if')(process.env.DEBUG, sourcemaps.write()))
+		.pipe(dest('./dist'));
+});

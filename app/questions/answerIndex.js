@@ -10,24 +10,18 @@ module.exports = [
 		type: "select",
 		name: "styles",
 		message: "Обработка стилей",
-		choices: require('./questions/styles')
+		choices: require('./stylea')
 	},
 	{
 		type: "select",
 		name: "layout",
 		message: "Вёрстка",
-		choices: require('./questions/layout')
+		choices: require('./layout')
 	},
 	{
 		type: "multiselect",
 		name: "others",
 		message: "Дополнительные задачи",
-		choices: require('./questions/additional_tasks')
-	},
-	{
-		type: "multiselect",
-		name: "plugins",
-		message: "Дополнительные плагины",
-		choices: require('./questions/additional_plugins')
+		choices: require('./additionalTasks')
 	}
 ];

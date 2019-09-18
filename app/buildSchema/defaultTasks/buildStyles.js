@@ -3,5 +3,8 @@ module.exports = {
 	srcPattern: "{sourcePath}/styles/**.css",
 	destinationPath: "{destinationPath}/styles/",
 	beforeCommands: [],
-	pipeCommands:  [],
+	pipeCommands:  [
+		`require('gulp-clean-css')()`,
+		`require('gulp-concat)('bundle.js)`
+	],
 };

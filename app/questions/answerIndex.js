@@ -10,7 +10,7 @@ module.exports = [
 		type: "select",
 		name: "styles",
 		message: "Обработка стилей",
-		choices: require('./stylea')
+		choices: require('./styles')
 	},
 	{
 		type: "select",

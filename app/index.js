@@ -13,5 +13,4 @@ const folderAvailable = require('./functions/folderAvailable');
 	}
 
 	const answers = await prompts(require('./questions/answerIndex'));
-
 })();

@@ -3,8 +3,8 @@ const plumber = require('gulp-plumber');
 
 task('clear', async () => await require('del')('./dist'));
 
-// TASKS
+:tasks:
 
-task('build', series('clear', parallel('build:CSS', 'build:JS', 'build:HTML')));
+task('build', series('clear', parallel(:task_names:)));
 task('default', series('build'));
 task('serve', series('build', 'watch'));

@@ -1,10 +1,13 @@
+const getCWDname = require('../functions/getCWDname');
+const validateProjectName = require('../functions/validateProjectName');
+
 module.exports = [
 	{
 		type: "text",
-		initial: process.cwd().split(path.sep).pop() || "",
+		initial: getCWDname(),
 		name: "name",
 		message: "Название проекта",
-		validate: value => /^[A-zА-яЁё0-9+_-]{1,36}$/.test(value) ? true : `От 1, до 36 символов, A-zА-я0-9 -_+`,
+		validate: value => validateProjectName(value),
 	},
 	{
 		type: "select",

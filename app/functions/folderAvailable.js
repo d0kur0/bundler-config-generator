@@ -1,7 +1,7 @@
 const fs = require('fs');
 
-module.exports = (folderPath) => {
-	const folder = fs.readdirSync(folderPath);
+module.exports = () => {
+	const folder = fs.readdirSync(process.cwd());
 
 	return !folder || folder.length;
 };

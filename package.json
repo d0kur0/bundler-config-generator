@@ -2,7 +2,7 @@
   "name": "bundler-config-generator",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./app/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/d0kur0/bundler-config-generator.git"
   },
-  "author": "",
+  "author": "d0kur0",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/d0kur0/bundler-config-generator/issues"
@@ -20,5 +20,8 @@
     "chalk": "^2.4.2",
     "ora": "^3.4.0",
     "prompts": "^2.2.1"
+  },
+  "bin": {
+    "install-bundler": "./app/index.js"
   }
 }
